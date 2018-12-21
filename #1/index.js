@@ -13,7 +13,7 @@ const server = http.createServer((req, res) => {
 
   const absolutePath = pathname.replace(/^\/+|\/+$/g, '');
 
-  const routeHolder = absolutePath ? router[absolutePath] : router.notFound
+  const routeHolder = router[absolutePath] ? router[absolutePath] : router.notFound
 
   routeHolder({ accumulator: Number(query.accumulator) + 1 }, (statusCode, payload) => {
 
